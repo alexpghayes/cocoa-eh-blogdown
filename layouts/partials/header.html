@@ -30,15 +30,15 @@
                             {{ end }}
                         {{ end }}
                     {{ end }}
-                    {{ range .Site.Menus.main }}
-                        <li class="page_item"> 
-                            <a href="{{ .URL }}">{{ .Name }}</a>
-                        </li>
-                    {{ end }}
                     {{ range where .Site.RegularPages "Section" ""}}
                         {{ if (and (and (ne .Title "License") (ne .Title "Home")) (not (in .Site.Params.exclude_headings (lower .Title))))}}
                             <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
                         {{ end }}
+                    {{ end }}
+                    {{ range .Site.Menus.main }}
+                        <li class="page_item"> 
+                            <a href="{{ .URL }}">{{ .Name }}</a>
+                        </li>
                     {{ end }}
                 </ul>
             </nav>
